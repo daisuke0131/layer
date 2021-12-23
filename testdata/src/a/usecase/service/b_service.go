@@ -1,6 +1,6 @@
 package service
 
-import "a/infrastructure/repository"
+import "a/infrastructure/repository" // want "NG"
 
 type bService struct {
 	aRepository         repository.ARepository

@@ -1,3 +1,3 @@
-module src
+module a
 
 go 1.16

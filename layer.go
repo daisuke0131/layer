@@ -23,14 +23,14 @@ func run(pass *analysis.Pass) (interface{}, error) {
 	for _, f := range pass.Files{
 		dir := pass.Fset.File(f.Pos()).Name()
 		if strings.Contains(dir,"/usecase/service/"){
-			// infrastructureの層への依存はしない
+			// prohibit to access innfrastructure directly
 			for _,imp := range  f.Imports{
 				v, err := strconv.Unquote(imp.Path.Value)
 				if err != nil{
 					return nil, err
 				}
 				if strings.Contains(v,"/infrastructure/") {
-					pass.Reportf(imp.Pos(), "%s is invalid import.", v)
+					pass.Reportf(imp.Pos(), "NG")
 				}
 			}
 		}

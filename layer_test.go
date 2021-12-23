@@ -1,7 +1,6 @@
 package layer_test
 
 import (
-	"fmt"
 	"testing"
 
 	"github.com/gostaticanalysis/testutil"
@@ -12,6 +11,5 @@ import (
 // TestAnalyzer is a test for Analyzer.
 func TestAnalyzer(t *testing.T) {
 	testdata := testutil.WithModules(t, analysistest.TestData(), nil)
-	fmt.Println(testdata)
 	analysistest.Run(t, testdata, layer.Analyzer,"a/...")
 }
